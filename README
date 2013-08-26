@@ -1,0 +1,36 @@
+mc_barf
+=======
+Intel Microcode Dumper
+This tool takes as input a binary version of an Intel Microcode update file and
+spews out the header information regarding all updates in the binary. The data
+can be displayed as well.
+
+Most Intel microcode files are ascii.  I have included an ascii to binary
+converter, "mc_dat_to_bin.py" which also ignores the comments.  The resulting
+file will be the same name as in the input file but ending with a '.bin'
+extension.
+
+Sources/References
+==================
+[1] The format is that as specified in:
+Intel 64 and IA-32 Architectures Software Developer's Manual
+Volume 3A: System Programming Guide, Part 1
+Of interest is section 8.11.  
+http://www.intel.com
+
+[2] The Intel pieces in the Linux kernel:
+linux/arch/x86/kernel/microcode_{core, intel}.c
+linux/arch/x86/include/asm/microcode.h
+
+These permit the kernel to initiate a CPU microcode update are also helpful.
+Source kernel used in writing mc_barf was linux-3.8.4
+http://www.linux.org
+
+Caveat
+======
+This is super ultra alpha.
+I have not fully tested or validated everything.
+
+Contact
+=======
+mattdavis9@gmail.com (enferex)
